@@ -105,6 +105,7 @@ int somayman()
 
 void  sochanlonhonhailatong2SNT () //188 Phan1_C_Printf_TuHeThongSoDenArray.pdf
 {
+    //C:\Users\ledan\Pictures\Untitled.png
     int n = 1;
     if (n % 2 !=0 && n < 2)
         return;

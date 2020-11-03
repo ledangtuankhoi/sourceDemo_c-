@@ -90,7 +90,43 @@ void b115_USBS()
 }
 void b121_somu ()
 {
+    int n  = 8;
+    int temp = n;
+    int dem = 0;
+    while (n != 0)
+    {
+        n /= 2;
+        dem ++;
+    }
+    cout << temp << " = " << 2 << "^" <<dem - 1;
+}
+int  snt(int n)
+{
+    int dem = 0;
+    for (int i = 2; i <= sqrt(n); i++)
+    {
+        if (n % i == 0)
+            dem ++;
+    }
+    if (dem == 0)
+        return 1;
+    else return 0;
     
+}
+void b122_thuasonguyento ()
+{
+    int n = 1350;
+    for (int i = 2; n != 0; i ++)
+    {
+        if (snt(i) == 1 && n % i == 0)
+        {
+            n /= i;
+            cout << i;  
+            if (n != 0)
+                cout << " * ";
+        }
+        
+    }
 }
 int main()
 {
@@ -99,6 +135,8 @@ int main()
     // b89_bangcuuchuong_hangdoc();
     // b92_bangcuuchuong_hangngang();
     // b93_maACSII();
-    b115_USBS();
+    // b115_USBS();
+    // b121_somu();
+    b122_thuasonguyento();
     // system ("pause");
 }

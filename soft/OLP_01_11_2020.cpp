@@ -22,7 +22,7 @@ Dữ liệu: Vào từ file văn bản cow.inp có định dạng như sau:
 Kết quả: Ghi ra file văn bản cow.out một dòng ghi một số nguyên 𝑙 lớn nhất thỏa mãn.
 */
 //bang cuu chuong
-void bangcuuchuong_hangdoc()
+void b89_bangcuuchuong_hangdoc()
 {
     int n = 9, i = 1;
     for (int j = 2; j <= 9;)
@@ -37,12 +37,12 @@ void bangcuuchuong_hangdoc()
         }
     }
 }
-void bangcuuchuong_hangngang()
+void b92_bangcuuchuong_hangngang()
 {
-    int n = 9, i = 1;
-    for (int j = 2; j <= 9;)
+    int n = 9, i = 2;
+    for (int j = 1; j <= 9;)
     {
-        cout <<endl << j << " * " << i << " = " << j * i   ;
+        cout << i << " * " << j << " = " << i * j << "\t  "   ;
         i++;
         if (i == 9)
         {
@@ -51,9 +51,54 @@ void bangcuuchuong_hangngang()
             cout <<endl;
         }
     }
+}
 
+void b93_maACSII()
+{
+    for (int i = 0; i < 128; i++)
+    {
+        if(i % 8 ==0)
+            cout << endl;
+        cout << "\t  " << i << ":  " << (char)i;
+    }
+}
+void b115_USBS()
+{
+    int n = 56;
+    int dem = 0;
+    int temp = 0;
+    int Tongchan = 0;
+    int max = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0)
+        {    cout << i <<" ";
+            dem++;
+            temp += i;
+            if(i % 2 == 0)  
+                Tongchan += i;
+            else 
+            {
+                if (i > max && i != n)
+                    max = i;
+            }
+        }
+
+    }
+    cout << "\tdem: " << dem << "\ttong: " << temp << "\ttongchan: " << Tongchan;
+    cout << "\tmaxUS: " << max;
+}
+void b121_somu ()
+{
+    
 }
 int main()
 {
-    bangcuuchuong();
+    // cout << "hello";
+    cout <<endl;
+    // b89_bangcuuchuong_hangdoc();
+    // b92_bangcuuchuong_hangngang();
+    // b93_maACSII();
+    b115_USBS();
+    // system ("pause");
 }

@@ -116,17 +116,42 @@ int  snt(int n)
 void b122_thuasonguyento ()
 {
     int n = 1350;
-    for (int i = 2; n != 0; i ++)
+    for (int i = 2; i <= n; i ++)
     {
-        if (snt(i) == 1 && n % i == 0)
+        int dem = 0;
+        while (n % i == 0)
         {
+            ++dem;
             n /= i;
-            cout << i;  
-            if (n != 0)
-                cout << " * ";
+            // cout << i;
+            // if (i <= n )
+            //     cout << "*";
         }
         
+        if (dem)
+        {
+            cout << i;
+            if (dem > 1 )
+                cout << "^" << dem;
+            if (n > i)
+                cout << "*";
+        }
     }
+}
+
+void b124_USCLN ()
+{
+    int a = 252;
+    int b = 105;
+    while (a == 0 || b == 0)
+    {
+        if (a > b)
+        {
+            a %= b;
+        }
+        else b %= a;
+    }
+    cout << a + b;
 }
 int main()
 {
@@ -137,6 +162,7 @@ int main()
     // b93_maACSII();
     // b115_USBS();
     // b121_somu();
-    b122_thuasonguyento();
+    // b122_thuasonguyento();
+    b124_USCLN();
     // system ("pause");
 }

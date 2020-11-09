@@ -143,7 +143,7 @@ void b124_USCLN ()
 {
     int a = 252;
     int b = 105;
-    while (a == 0 || b == 0)
+    while (a * b != 0)
     {
         if (a > b)
         {
@@ -152,6 +152,37 @@ void b124_USCLN ()
         else b %= a;
     }
     cout << a + b;
+}
+void b129_3xebus ()
+{
+    int a = 65 + 10;
+    int b = 55 + 5;
+    int c = 48 + 2;
+    int max = a;
+    if (b > a)
+    {
+        max = b;
+        if (c > b)
+            max = c;
+    }
+
+    for (int  i = max; i < a * b * c; i++)
+    {
+        if (i % a == 0 && i % b == 0 && i % c == 0 )
+           { cout << i <<" " ;
+            return ;}
+    }
+}
+
+void b188_christatian_goldbach ()
+{
+    int n = 212; // 3 + 5
+    for (int i = 2; i < n; i++)
+    {
+        if (snt(i)  && snt(n - i) && n - i > 1 )
+            cout << "\t" << i << "\t" << n - i << endl;
+    }
+    
 }
 int main()
 {
@@ -163,6 +194,8 @@ int main()
     // b115_USBS();
     // b121_somu();
     // b122_thuasonguyento();
-    b124_USCLN();
+    // b124_USCLN();
+    // b129_3xebus();
+    b188_christatian_goldbach();
     // system ("pause");
 }

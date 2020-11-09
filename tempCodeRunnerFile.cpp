@@ -1,39 +1,43 @@
+#include<iostream>
 
-#include<stdio.h>
-#include<conio.h>
-int Mang[10]={70, 95 , 26, 68, 87, 56, 66, 16, 54, 42};
-int X;
-void doicho(int &a, int &b){
-    int
-    tam=a;
-    a=b;
-    b=tam;
+using namespace std;
+
+struct node{
+	int data;
+	node *next;
+};
+
+node *createNode(int x){
+    node *temp = new node;
+    temp->next = NULL;
+    temp->data = x; 
+    return temp;
 }
-void SelectionSort(int mang[],int n)
-{ 
-	int i,j,tam;
-	for(i=0;i<n;i++)
-	{
-		int min=i;
-		for(j=i+1;j<n;j++)
-			if(mang[j]<mang[min]) min=j;
-		doicho(mang[min], mang[i]);
+
+void printList(node *l){
+	node *p = l;
+	while (p != NULL){
+		cout << p->data << " ";
+		p = p->next;
 	}
 }
-void inday(int mang[],int n)
-{ 
-	int vt;
-	for(vt=0;vt<n;vt++)
-	printf("%d ",mang[vt]);
+
+node *addElement(node*p, int x){
+	node *temp = createNode(x);
+	p->next = temp;
+	return temp;
 }
-int main()
-{
-	// clrscr();
-    // class();
-	printf("Day truoc khi sap xep\n");
-	inday(Mang,10);
-	SelectionSort(Mang,10);
-	printf("\nDay sau khi sap xep\n");
-	inday(Mang,10);
-	getch();
+
+int main(){
+	int n, x;
+	cin >> n;
+	cin >> x;
+	node *l = createNode(x);
+	node *p = l;
+	for (int i = 1; i < n; i++){
+		cin >> x;
+		p = addElement(p, x);
+	}
+	printList(l);
+	return 0;
 }

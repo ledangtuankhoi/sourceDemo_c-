@@ -28,15 +28,12 @@ void creatList(list &l)
     l.tail = NULL;
 }
 
-void AddheadList(list &l, int x)
+void AddheadList(list &l, node *p)
 {
-    // creatNode(x);
-    node *p;
-    p = new node;
-    p = creatNode(x);
     if (l.head == NULL)
     {
         l.head = p;
+        l.tail = l.head;
     }
     else 
     {
@@ -47,27 +44,61 @@ void AddheadList(list &l, int x)
 
 void AddtailList(list &l, node *x)
 {
-    if (l.tail == NULL)
+    if (l.head == NULL)
     {
-        l.tail = x; 
+         l.head = x;
+         l.tail = l.head;
     }
     else 
     {
-        l.tail ->next = x ;
+        l.tail -> next = x ;
+        l.tail = x;
     }
-    
 }
+
+void NhapVaDS (list &SN)
+{
+    int a[5] = {5,4,3,2,1};
+    node *temp;
+    for (int i = 0; i < 5; i++)
+    {
+        // AddHeadList(SN,creatNode(rand() % 100)); // nhap so ngau nhien
+        AddheadList(SN,creatNode(a[i]));
+        // cout << "\n\nvi tri: " << SN.head;
+        // cout << "\nvi tri ket tiep: " << SN.head ->next;
+        // cout << "\ngia tri (info): " << SN.head ->info;
+
+    }
+}
+void XuatDS(list &SN)
+{
+    node *temp;
+    cout <<"\n----------------------";
+    temp = SN.head; // temp thuộc danh sach So nguyên (SN)
+    while (temp -> next  != NULL)
+    {
+        // temp = temp ->next;
+        cout << "\n\nvi tri: " << temp; 
+        cout << "\nvi tri ket tiep: " << temp ->next; 
+        cout << "\ngia tri (info): " << temp ->info;
+
+        temp = temp ->next;
+    }
+}
+
 int main()
 {
-    list songuyem; 
-    cout << "\nvi tri; " << creatNode(2);     
-    cout <<  "\nvi tri next: " << creatNode(2) -> next;
-    cout <<  "\ngia tri: " << creatNode(2) -> info;
 
-    while (songuyem.tail ==  NULL)
-    {
-        node temp;
-        
-    }
+    list SN;
+    // NhapVaXuatDS();
+    NhapVaDS(SN);
+    // XuatDS(SN);
+    cout << SN.head << "\n";
+    cout << SN.head -> next << "\n";
+    cout << SN.head -> info << "\n";
 
+    cout << SN.tail << "\n";
+    cout << SN.tail -> next << "\n";
+    cout << SN.tail -> info << "\n";
+    
 }

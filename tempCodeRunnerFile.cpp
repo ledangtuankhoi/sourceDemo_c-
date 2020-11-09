@@ -1,1 +1,3 @@
-cout <<  "\nvi tri next: NULL"; break;
+out << "\n\nvi tri: " << SN.head;
+        // cout << "\nvi tri ket tiep: " << SN.head ->next;
+        // c

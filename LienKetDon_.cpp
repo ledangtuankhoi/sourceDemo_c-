@@ -77,15 +77,16 @@ void InsertAfterQ (list &list, node *x, node *q)
 
 void NhapVaXuatDS ()
 {
-    int a[5];
-    for (int i = 0; i < 5; i++)
-    {
-        a[i] = rand() % 100;
-    }
+    int a[5] = {5,4,3,2,1};
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     a[i] = rand() % 100;
+    // }
     list SN; // so guyen
     node *temp;
     for (int i = 0; i < 5; i++)
     {
+        // AddHeadList(SN,taonode(rand() % 100));
         AddHeadList(SN,taonode(a[i]));
         cout << "\n\nvi tri: " << SN.dauDS;
         cout << "\nvi tri ket tiep: " << SN.dauDS ->nodenext;

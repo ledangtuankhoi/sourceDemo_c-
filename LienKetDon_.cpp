@@ -106,13 +106,105 @@ cout <<"\n----------------------";
     }
     
 }
+
+
+void NhapVaDS (list &SN)
+{
+    int a[5] = {5,4,3,2,1};
+    node *temp;
+    for (int i = 0; i < 5; i++)
+    {
+        // AddHeadList(SN,creatNode(rand() % 100)); // nhap so ngau nhien
+        AddHeadList(SN,taonode(a[i]));
+        // cout << "\n\nvi tri: " << SN.head;
+        // cout << "\nvi tri ket tiep: " << SN.head ->nodenext;
+        // cout << "\ngia tri (thongtin): " << SN.head ->thongtin;
+
+    }
+}
+void XuatDS(list &SN)
+{
+    node *temp;
+    cout <<"\n----------------------";
+    temp = SN.dauDS; // temp thuộc danh sach So nguyên (SN)
+
+    while (temp -> nodenext  != NULL)
+    {
+        // temp = temp ->nodenext;
+        // cout << "\n\nvi tri: " << temp; 
+        // cout << "\nvi tri ket tiep: " << temp ->nodenext; 
+        // cout << "\ngia tri (thongtin): " << temp ->thongtin;
+        cout << "\n\n " << temp << " " << temp->thongtin << " " << temp->nodenext;
+        temp = temp ->nodenext;
+    }
+}
+int removeAfterQ (list &l, node *q, int &x)
+{
+    node * p;
+    if (q != NULL)
+    {
+        p = q->nodenext;
+        if (p != NULL)
+        {
+            if (p == l.cuoiDS)
+                l.cuoiDS = q;
+            q->nodenext = p->nodenext;
+            x = p->thongtin;
+            delete p;
+        }
+        return 1;
+    }
+    else 
+    return 0;
+}
+
+
+int removeHead (list &l, int &x)
+{
+    node *p;
+    if (l.dauDS = NULL)
+    {
+        p =l.dauDS; 
+        x = p->thongtin;
+        l.dauDS = l.dauDS->nodenext;
+        delete p;
+        if (l.dauDS == NULL)
+            l.cuoiDS = NULL;
+        return 1;
+    }
+    return 0;
+}
+int removeX ( list &l, int x)
+{
+    node *p,*q = NULL;
+     p = l.dauDS;
+    while ((p != NULL) && p->thongtin != x)
+    {
+        q = p;
+        p = p->nodenext;
+    } 
+    if (p == NULL )
+        return 0;
+    if ( q != NULL) 
+        removeAfterQ(l,q,x);
+    else 
+        removeHead(l,x);
+    return 1;
+
+}
 int main()
 {
     cout << "\nTuanKhoi\n";
 
+    list SN;
     // int n = 99;
     // cout << taonode(n);
 
-    NhapVaXuatDS();
-    
+    // NhapVaXuatDS();
+
+    NhapVaDS(SN);
+
+    removeX(SN, 5);
+
+    XuatDS(SN);    
 }

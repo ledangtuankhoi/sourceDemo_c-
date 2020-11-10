@@ -56,6 +56,7 @@ void AddtailList(list &l, node *x)
     }
 }
 
+
 void NhapVaDS (list &SN)
 {
     int a[5] = {5,4,3,2,1};
@@ -75,30 +76,97 @@ void XuatDS(list &SN)
     node *temp;
     cout <<"\n----------------------";
     temp = SN.head; // temp thuộc danh sach So nguyên (SN)
+
     while (temp -> next  != NULL)
     {
         // temp = temp ->next;
-        cout << "\n\nvi tri: " << temp; 
-        cout << "\nvi tri ket tiep: " << temp ->next; 
-        cout << "\ngia tri (info): " << temp ->info;
-
+        // cout << "\n\nvi tri: " << temp; 
+        // cout << "\nvi tri ket tiep: " << temp ->next; 
+        // cout << "\ngia tri (info): " << temp ->info;
+        cout << "\n\n " << temp << " " << temp->info << " " << temp->next;
         temp = temp ->next;
     }
+}
+
+node *Search(list &l, node *x)
+{
+    node *p;
+    p = l.head;
+    while (p -> next != NULL && p -> info != x -> info)
+        p = p -> next;
+    return p;
+}
+void SearchInfo (list SN, int x)
+{
+    node *temp;
+    temp = new node;
+    temp = SN.head;
+    while (temp -> next != NULL)
+    {
+        if (temp -> info == x)
+        {
+            cout << "-\t-\t-\t-\t-\t-\t-\t";
+            cout << "\n\nvi tri: " << temp; 
+            cout << "\nvi tri ket tiep: " << temp ->next; 
+            cout << "\ngia tri (info): " << temp ->info;
+            return;
+        }
+        temp = temp -> next;
+    }
+    cout << "khong tim thay";
+    return;
+}
+
+void InsertAfterNode (list &SN, node *x, node *q) //q la vi tri can chen
+{
+    if (q != NULL)
+    {
+        x->next = q->next;
+        q->next = x;
+    }
+    else 
+    {
+        AddheadList(SN,x);
+    }
+    XuatDS(SN);
+}
+
+void delnodeinlist(list &l, node *x)
+// danh sach list vaf phan tu x muon xoa
+{
+    cout << "delnodeinlist";
+    node *temp, *q;
+    // temp = new node;
+    temp = l.head;
+    while (/* condition */)
+    {
+        /* code */
+    }
+    
 }
 
 int main()
 {
 
     list SN;
-    // NhapVaXuatDS();
     NhapVaDS(SN);
     // XuatDS(SN);
-    cout << SN.head << "\n";
-    cout << SN.head -> next << "\n";
-    cout << SN.head -> info << "\n";
+    // cout << SN.head << "\n";
+    // cout << SN.head -> next << "\n";
+    // cout << SN.head -> info << "\n";
 
-    cout << SN.tail << "\n";
-    cout << SN.tail -> next << "\n";
-    cout << SN.tail -> info << "\n";
+    // cout << SN.tail << "\n";
+    // cout << SN.tail -> next << "\n";
+    // cout << SN.tail -> info << "\n";
+
+    // SearchInfo(SN,1);
+    // cout << Search(SN,creatNode(3));
+
+    // InsertAfterNode(SN,creatNode(28),creatNode(1));
+
+    // AddheadList(SN,creatNode(28));
+
+    delnodeinlist(SN,creatNode(1));
+    XuatDS(SN);
     
 }

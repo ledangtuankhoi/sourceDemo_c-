@@ -190,6 +190,7 @@ int removeX ( list &l, int x)
     else 
         removeHead(l,x);
     return 1;
+    
 
 }
 int main()
@@ -204,7 +205,9 @@ int main()
 
     NhapVaDS(SN);
 
-    removeX(SN, 5);
+    // removeX(SN, 5);
+
+    InsertAfterQ(SN,taonode(12),taonode(1));
 
     XuatDS(SN);    
 }

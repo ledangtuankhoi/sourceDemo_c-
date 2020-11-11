@@ -207,7 +207,8 @@ int main()
 
     // removeX(SN, 5);
 
-    InsertAfterQ(SN,taonode(12),taonode(1));
+    // InsertAfterQ(SN,taonode(12),taonode(1));
+    removeAfterQ(SN,taonode(2),3)
 
     XuatDS(SN);    
 }

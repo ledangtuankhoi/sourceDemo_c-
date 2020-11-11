@@ -1,1 +1,2 @@
-cout << "het"; return ;
+
+        // l.head = l.head->next;

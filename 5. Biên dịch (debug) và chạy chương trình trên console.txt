@@ -1,0 +1,67 @@
+5. Biên dịch và chạy chương trình trên console
+Để thực hiện việc này, các bạn phải tạo thêm 2 file .json là tasks.json và launch.json trong folder .vscode.
+
+tasks.json:
+
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "C/C++: g++.exe build active file",
+			"command": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe",
+			"args": [
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		}
+	]
+}
+launch.json:
+
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C/C++: Build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++.exe build active file"
+        }
+    ]
+}
+Sau khi tạo 2 file này xong, bạn chỉ cần F5 để biên dịch và chạy chương trình. Tuy nhiên chương trình bạn chạy sẽ tắt ngay lập tức, để khắc phục hãy thêm dòng lệnh system("pause"); trước return 0;
+
+Lưu ý: Folder .vscode có thể dùng lại, nên hãy giữ gìn cẩn thận, khi làm việc ở nơi khác chỉ cần copy và paste nó vào là có thể biên dịch và chạy chương trình rồi.
+
+Kết
+Trên đây, mình đã giới thiệu với các bạn về Visual Studio Code và các cài đặt để lập trình C++. Nếu thấy bài viết hữu ích hãy rate 5* và share để cho mọi người có thể tham khảo :v
+
+Hãy để lại comment để mình có thể hoàn thiện trong tương lai. Cảm ơn các bạn.

@@ -3,9 +3,15 @@
 #include <ctime>
 #include <conio.h>
 #include <windows.h>
-// # include <bits/c++0x_warning.h>
+
 #define max 10
-// #define becas[max]
+const int width = 10;
+const int height = 10;
+
+int X_old = 0, Y_old = 0, x = 0 ;
+int X_now = (rand() % (1 - (-1) + 1) + (-1));
+int  Y_now = (rand() % (1 - (-1) + 1) + (-1));
+
 using namespace std;
 
 
@@ -34,74 +40,88 @@ void out1array(int b[1000])
     
 }
 
-void ca ()
+string conca1 (int n)
 {
-    
-}
-
-void fish(string becas[max][max], int n, int b[1000])
-{
-    int X_now = (rand() % (1 - (-1) + 1) + (-1));
-    int  Y_now = (rand() % (1 - (-1) + 1) + (-1));
-    int X_old = 0, Y_old = 0, x = 0 ;
-    char key;
-
-    while (true)
+    char a[4] = {"<"};
+    char c[4] = "o<" ;
+    int j = 0;
+    a[1] = (int)n;
+    for (int i = 2; i < 4; i++)
     {
-
-        b[x] = X_now*10 + Y_now;
-        x++;
-        if(kbhit()){
-            key = getch();
-            if(key == 27 ){
-                break;
-            }
-        }
-
-        do{
-            if (X_now < 0 || Y_now < 0 )
-            {
-                X_now += 2;
-                Y_now += 2;
-            }
-            if (X_now >= max || Y_now >= max)
-            {
-                X_now -= 2;
-                Y_now -= 2;
-            }
-            X_now += (rand() % (1 - (-1) + 1) + (-1));
-            Y_now += (rand() % (1 - (-1) + 1) + (-1));
-        } while (X_now < 0 || Y_now < 0 || X_now >= max || Y_now >= max);
-        
-        if (Y_now < Y_old || X_now < Y_old )
-            becas[X_now][Y_now ] = "<2o<";
-        
-        if (Y_now > Y_old || X_now > Y_old )
-            becas[X_now][Y_now ] = ">O2>";
-        // becas[X_now][Y_now ] = "<2o<";
-
-        out2array(becas);
-        X_old = X_now;
-        Y_old = Y_now;
-
-        Sleep(500);
-        becas[X_now ][Y_now ] = " ";
-        out1array(b);
-        system ("CLS");
-
-    }
-    
-    
+        a[i] = c[j];
+        j++;
+    } 
+    return a;
 }
+
+
+string conca2 (int n)
+{
+    char a[4] = {">o"};
+    char c[4] = ">" ;
+    int j = 0;
+    a[3] = (int)n;
+    for (int i = 2; i < 4; i++)
+    {
+        a[i] = c[j];
+        j++;
+    } 
+    return a;
+}
+void fish (string becas[height][width], char n) // ca thu n
+{
+
+
+    system ("CLS");
+
+    do{
+        if (X_now < 0 || Y_now < 0 )
+        {
+            X_now += 2;
+            Y_now += 2;
+        }
+        if (X_now >= max || Y_now >= max)
+        {
+            X_now -= 2;
+            Y_now -= 2;
+        }
+        X_now += (rand() % (1 - (-1) + 1) + (-1));
+        Y_now += (rand() % (1 - (-1) + 1) + (-1));
+    } while (X_now < 0 || Y_now < 0 || X_now >= max || Y_now >= max);
+    
+    if (Y_now < Y_old || X_now < Y_old )
+        becas[X_now][Y_now ] = "<2o<";
+    
+    if (Y_now > Y_old || X_now > Y_old )
+        becas[X_now][Y_now ] = ">O2>";
+    
+    X_old = X_now;
+    Y_old = Y_now;
+
+    // out2array(becas);
+    // Sleep(700);
+    // becas[X_now ][Y_now ] = " ";
+}
+
+
 int main()
 {
     int b[1000];
-    // b[1000] = new int[1000];
     srand(time(NULL)); 
-
     string becas[max][max] = {" "};
-    fish(becas,2,b);
-    // fish(becas,2,b);
-    out1array(b);
+
+
+    while (true)
+    {
+        fish(becas,2);
+        // Sleep(700);
+        out2array(becas);
+        Sleep(700);
+        becas[X_now ][Y_now ] = " ";
+    }
+
+    // cout << conca1(2);
+    // cout << conca2(2);
+
 
 }

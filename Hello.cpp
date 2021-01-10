@@ -2,7 +2,8 @@
 using namespace std;
 void InsertionSort(int a[ ], int n)  
 {int pos,i,x;  
-for(i=1;i<n;i++)    {="" x="a[i];" pos="i-1;" while((pos="">=0)&&(a[pos]>x)) //tìm vị trí chèn a[i]  
+for(i=1;i<n;i++)    
+{="" x="a[i];" pos="i-1;" while((pos="">=0)&&(a[pos]>x)) //tìm vị trí chèn a[i]  
  {  
   a[pos+1]=a[pos];  
   pos--;  
